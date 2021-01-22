@@ -25,7 +25,7 @@ public int GetBlock(){
     return randomNum;
 }
 
-public void ApplyDamage( int damage){
+public void ApplyDamage(int damage){
     Health = Health - damage;
 }
 

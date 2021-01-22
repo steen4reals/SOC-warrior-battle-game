@@ -8,48 +8,49 @@ namespace WarriorBattle
         {
             Console.WriteLine("FIGHT!");
 
-            Warrior warriorA = new Warrior("Fred", 100, 25, 20);
-            Warrior warriorB = new Warrior("Tom", 100, 12, 10);
+            Warrior warrior1 = new Warrior("Fred", 100, 15, 10);
+            Warrior warrior2 = new Warrior("Tom", 100, 15, 10);
 
             //HandleAttack(warriorA, warriorB);
             //Console.WriteLine(warriorA.Health);
-            // Console.WriteLine(warriorB.Health);
-            Battle(warriorA, warriorB);
+            // Console.WriteLine(warriunorB.Health);
+            Battle(warrior1, warrior2);
 
-            Console.WriteLine($"end of game : warrior A health {warriorA.Health} warrior B health {warriorB.Health}");
-
-
+            Console.WriteLine($"end of game : warrior A health {warrior1.Health} warrior B health {warrior2.Health}");
 
         }
-        static void HandleAttack(Warrior warrior1, Warrior warrior2)
+        static void HandleAttack(Warrior warriorA, Warrior warriorB)
         {
-            int warriorAattack = warrior1.GetAttack();
-            int warriorBblock = warrior2.GetBlock();
+            int warriorAattack = warriorA.GetAttack();
+            int warriorBblock = warriorB.GetBlock();
             int warriorBdamage = warriorAattack - warriorBblock;
             if (warriorBdamage > 0)
             {
-                warrior2.ApplyDamage(warriorBdamage);
+                warriorB.ApplyDamage(warriorBdamage);
             }
-            Console.WriteLine($" warrior 1 health {warrior1.Health}");
-            Console.WriteLine($" warrior 2 health {warrior2.Health}");
+            
 
         }
 
-        static void Battle(Warrior warriorA, Warrior warriorB)
+        static void Battle(Warrior warrior1, Warrior warrior2)
         {
-            Console.WriteLine($"Thus begins a battle of two great warriors; {warriorA.Name} and {warriorB.Name}");
-            Console.WriteLine($"{warriorA.Name} has 100 health");
-            Console.WriteLine($"{warriorB.Name} has 100 health");
+            Console.WriteLine($"Thus begins a battle of two great warriors; {warrior1.Name} and {warrior2.Name}");
+            Console.WriteLine($"{warrior1.Name} has 100 health");
+            Console.WriteLine($"{warrior2.Name} has 100 health");
             while (true)
             {
 
-                HandleAttack(warriorA, warriorB);
-                if (warriorB.Health < 0)
+                HandleAttack(warrior1, warrior2);
+                Console.WriteLine($" warrior 1 health {warrior1.Health}");
+                Console.WriteLine($" warrior 2 health {warrior2.Health}");
+                if (warrior2.Health < 0)
                 {
                     break;
                 }
-                HandleAttack(warriorB, warriorA);
-                if (warriorA.Health < 0)
+                HandleAttack(warrior2, warrior1);
+                Console.WriteLine($" warrior 1 health {warrior1.Health}");
+                Console.WriteLine($" warrior 2 health {warrior2.Health}");
+                if (warrior1.Health < 0)
                 {
                     break;
                 }
