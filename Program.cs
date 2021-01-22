@@ -8,12 +8,12 @@ namespace WarriorBattle
         {
             Console.WriteLine("FIGHT!");
 
-            Warrior warrior1 = new Warrior("Fred", 15, 2, 6);
-            Warrior warrior2 = new Warrior("Tom", 20, 4, 2);
+            Warrior warriorA = new Warrior("Fred", 15, 2, 6);
+            Warrior warriorB = new Warrior("Tom", 20, 4, 2);
 
-            HandleAttack(warrior1, warrior2);
-            Console.WriteLine(warrior1.Health);
-            Console.WriteLine(warrior2.Health);
+            HandleAttack(warriorA, warriorB);
+            Console.WriteLine(warriorA.Health);
+            Console.WriteLine(warriorB.Health);
 
 
         }
@@ -28,7 +28,11 @@ namespace WarriorBattle
             }
         }
 
-
+        static void Battle(Warrior warrior1, Warrior warrior2){
+            while (warrior1.Health>0){
+                HandleAttack();
+            }
+        }
 
     }
 }
